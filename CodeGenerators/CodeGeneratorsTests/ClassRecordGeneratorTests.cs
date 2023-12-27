@@ -1,4 +1,5 @@
 using CodeGenerators;
+using Microsoft.CodeAnalysis.CSharp;
 
 namespace CodeGeneratorsTests;
 
@@ -20,5 +21,9 @@ public class ClassRecordGeneratorTests
 
         var result = test.Build();
         Assert.NotEmpty(result);
+        
+        var tree = CSharpSyntaxTree.ParseText(result);
+        var diag = tree.GetDiagnostics();
+        Assert.False(diag.Any());
     }
 }
