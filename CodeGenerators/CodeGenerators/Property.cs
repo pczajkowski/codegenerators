@@ -4,14 +4,14 @@ namespace CodeGenerators;
 
 public class Property : IGenerator
 {
-    private readonly string name;
-    public string Name => name;
+    public string Name { get; }
+
     private readonly string type;
-    public List<AttributeElement> Attributes { get; set; } = new List<AttributeElement>();
+    public List<IGenerator> Attributes { get; } = new List<IGenerator>();
 
     public Property(string name, string type)
     {
-        this.name = name;
+        Name = name;
         this.type = type;
     }
 
@@ -24,7 +24,7 @@ public class Property : IGenerator
                 sb.AppendLine(attribute.Build(indent));
         }
         
-        sb.Append($"{(new string('\t', indent))}public {type} {name} {{ get; set; }}");
+        sb.Append($"{(new string('\t', indent))}public {type} {Name} {{ get; set; }}");
 
         return sb.ToString();
     } 

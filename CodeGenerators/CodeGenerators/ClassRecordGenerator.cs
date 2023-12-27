@@ -4,8 +4,8 @@ namespace CodeGenerators;
 
 public class ClassRecordGenerator : IGenerator
 {
-    public List<string> Usings { get; set; } = new List<string>();
-    public Dictionary<string, Property> Properties { get; set; } = new Dictionary<string, Property>();
+    public List<string> Usings { get; } = new();
+    public Dictionary<string, IGenerator> Properties { get; set; } = new();
     private readonly string namespaceName;
     private readonly string name;
     private readonly bool isRecord;
