@@ -5,6 +5,7 @@ namespace CodeGenerators;
 public class Property : IGenerator
 {
     private readonly string name;
+    public string Name => name;
     private readonly string type;
     public List<AttributeElement> Attributes { get; set; } = new List<AttributeElement>();
 

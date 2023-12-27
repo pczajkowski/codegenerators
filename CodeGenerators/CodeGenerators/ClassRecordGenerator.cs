@@ -5,7 +5,7 @@ namespace CodeGenerators;
 public class ClassRecordGenerator : IGenerator
 {
     public List<string> Usings { get; set; } = new List<string>();
-    public List<Property> Properties { get; set; } = new List<Property>();
+    public Dictionary<string, Property> Properties { get; set; } = new Dictionary<string, Property>();
     private readonly string namespaceName;
     private readonly string name;
     private readonly bool isRecord;
@@ -35,7 +35,7 @@ public class ClassRecordGenerator : IGenerator
         indent++;
 
         if (Properties.Any())
-            sb.AppendLine(string.Join("\n\n", Properties.Select(x => x.Build(indent))));
+            sb.AppendLine(string.Join("\n\n", Properties.Select(x => x.Value.Build(indent))));
 
         indent--;
         sb.AppendLine("}");

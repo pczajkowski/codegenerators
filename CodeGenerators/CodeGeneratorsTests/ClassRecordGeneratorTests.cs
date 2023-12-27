@@ -13,11 +13,11 @@ public class ClassRecordGeneratorTests
         
         var property = new Property("TestProperty", "string");
         property.Attributes.Add(new AttributeElement("Column", "Test Property"));
-        test.Properties.Add(property);
+        test.Properties.Add(property.Name, property);
 
         var secondProperty = new Property("SecondProperty", "int");
         secondProperty.Attributes.Add(new AttributeElement("Column", "Second Property"));
-        test.Properties.Add(secondProperty);
+        test.Properties.Add(secondProperty.Name, secondProperty);
 
         var result = test.Build();
         Assert.NotEmpty(result);
