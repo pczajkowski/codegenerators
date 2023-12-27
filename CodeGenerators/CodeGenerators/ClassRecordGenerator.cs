@@ -35,10 +35,7 @@ public class ClassRecordGenerator : IGenerator
         indent++;
 
         if (Properties.Any())
-        {
-            foreach (var property in Properties)
-                sb.AppendLine(property.Build(indent));
-        }
+            sb.AppendLine(string.Join("\n\n", Properties.Select(x => x.Build(indent))));
 
         indent--;
         sb.AppendLine("}");
