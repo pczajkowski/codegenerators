@@ -32,12 +32,10 @@ public class ClassRecordGenerator : IGenerator
         sb.AppendLine();
 
         sb.AppendLine($"public {(isRecord ? "record" : "class")} {name}\n{{");
-        indent++;
 
         if (Properties.Any())
-            sb.AppendLine(string.Join("\n\n", Properties.Select(x => x.Value.Build(indent))));
+            sb.AppendLine(string.Join("\n\n", Properties.Select(x => x.Value.Build(indent+1))));
 
-        indent--;
         sb.AppendLine("}");
 
         return sb.ToString();
