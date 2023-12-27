@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGenerators", "CodeGenerators\CodeGenerators.csproj", "{A9BA9DAD-3101-4840-AF42-F84DE417F5E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGeneratorsTests", "CodeGeneratorsTests\CodeGeneratorsTests.csproj", "{251E5058-FEC4-4160-B33F-0E801C9E5523}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9BA9DAD-3101-4840-AF42-F84DE417F5E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9BA9DAD-3101-4840-AF42-F84DE417F5E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9BA9DAD-3101-4840-AF42-F84DE417F5E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9BA9DAD-3101-4840-AF42-F84DE417F5E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{251E5058-FEC4-4160-B33F-0E801C9E5523}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{251E5058-FEC4-4160-B33F-0E801C9E5523}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{251E5058-FEC4-4160-B33F-0E801C9E5523}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{251E5058-FEC4-4160-B33F-0E801C9E5523}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
