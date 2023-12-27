@@ -22,7 +22,7 @@ public class ClassRecordGenerator : IGenerator
         var sb = new StringBuilder();
         if (Usings.Any())
         {
-            foreach (var usingItem in Usings)
+            foreach (var usingItem in Usings.Distinct())
                 sb.AppendLine($"using {usingItem};");
 
             sb.AppendLine();
