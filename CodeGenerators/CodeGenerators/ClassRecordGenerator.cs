@@ -12,7 +12,7 @@ public class ClassRecordGenerator : IGenerator
 
     public ClassRecordGenerator(string namespaceName, string name, bool isRecord = false)
     {
-        this.namespaceName = namespaceName;
+        this.namespaceName = Helpers.SanitizeName(namespaceName);
         this.name = Helpers.SanitizeName(name);
         this.isRecord = isRecord;
     }
