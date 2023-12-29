@@ -11,7 +11,7 @@ public class Property : IGenerator
 
     public Property(string name, string type)
     {
-        Name = name;
+        Name = Helpers.SanitizeName(name);
         this.type = type;
     }
 
