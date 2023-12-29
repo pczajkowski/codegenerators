@@ -7,13 +7,13 @@ public class ClassRecordGenerator : IGenerator
     public List<string> Usings { get; } = new();
     public Dictionary<string, IGenerator> Properties { get; set; } = new();
     private readonly string namespaceName;
-    private readonly string name;
+    public string Name { get; }
     private readonly bool isRecord;
 
     public ClassRecordGenerator(string namespaceName, string name, bool isRecord = false)
     {
         this.namespaceName = Helpers.SanitizeName(namespaceName);
-        this.name = Helpers.SanitizeName(name);
+        Name = Helpers.SanitizeName(name);
         this.isRecord = isRecord;
     }
 
@@ -31,7 +31,7 @@ public class ClassRecordGenerator : IGenerator
         sb.AppendLine($"namespace {namespaceName};");
         sb.AppendLine();
 
-        sb.AppendLine($"public {(isRecord ? "record" : "class")} {name}\n{{");
+        sb.AppendLine($"public {(isRecord ? "record" : "class")} {Name}\n{{");
 
         if (Properties.Any())
             sb.AppendLine(string.Join("\n\n", Properties.Select(x => x.Value.Build(indent+1))));
