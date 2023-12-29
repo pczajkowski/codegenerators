@@ -20,7 +20,7 @@ internal sealed class GeneratorCmd : Command<GeneratorCmd.Settings>
         public uint StartFrom { get; init; }
     }
 
-    string GetType(XLDataType type) =>
+    private static string GetType(XLDataType type) =>
         type switch
         {
             XLDataType.Number => "double?",
@@ -29,8 +29,8 @@ internal sealed class GeneratorCmd : Command<GeneratorCmd.Settings>
             XLDataType.TimeSpan => "TimeSpan?",
             _ => throw new Exception($"Can't match {type}!")
         };
-    
-    void GenerateRecord(WorksheetRecord worksheet, string outputFolder, string filename)
+
+    private static void GenerateRecord(WorksheetRecord worksheet, string outputFolder, string filename)
     {
         var recordObject = new ClassRecordGenerator(filename, worksheet.Name, true);
         var outputPath = Path.Combine(outputFolder, $"{recordObject.Name}.cs");
@@ -50,7 +50,7 @@ internal sealed class GeneratorCmd : Command<GeneratorCmd.Settings>
         File.WriteAllText(outputPath, recordObject.Build());
     }
 
-    void Generate(Settings settings)
+    private static void Generate(Settings settings)
     {
         if (string.IsNullOrWhiteSpace(settings.InputPath)) return;
         
@@ -69,7 +69,7 @@ internal sealed class GeneratorCmd : Command<GeneratorCmd.Settings>
     public override int Execute(CommandContext context, Settings settings)
     {
         if (!File.Exists(settings.InputPath)) throw new FileNotFoundException(settings.InputPath);
-        
+
         Generate(settings);
         return 0;
     } 
