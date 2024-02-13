@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "GeneratorForExcelORM": {
+      "commandName": "Project",
+      "commandLineArgs": "testFiles/differentTypes.xlsx"
+    }
+  }
+}

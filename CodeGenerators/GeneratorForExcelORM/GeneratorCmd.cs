@@ -42,6 +42,7 @@ internal sealed class GeneratorCmd : Command<GeneratorCmd.Settings>
             
             var propertyObject = new Property(column.Name, GetType(column.Type));
             propertyObject.Attributes.Add(new AttributeElement("Column", column.Name));
+            if (column.Type == XLDataType.DateTime) recordObject.Usings.Add("System");
             
             if (!recordObject.Properties.TryAdd(propertyObject.Name, propertyObject))
                 Console.Error.WriteLine($"Duplicated property {propertyObject.Name}!");
