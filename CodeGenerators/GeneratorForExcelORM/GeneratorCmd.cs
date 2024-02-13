@@ -25,6 +25,7 @@ internal sealed class GeneratorCmd : Command<GeneratorCmd.Settings>
         {
             XLDataType.Number => "double?",
             XLDataType.Text => "string?",
+            XLDataType.Blank => "string?",
             XLDataType.DateTime => "DateTime?",
             XLDataType.TimeSpan => "TimeSpan?",
             _ => throw new Exception($"Can't match {type}!")
